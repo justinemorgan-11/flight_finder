@@ -14,6 +14,8 @@
     "url": "git+https://github.com/justinemorgan-11/flight_finder.git"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
     "axios": "^0.17.1",
     "babel": "^6.23.0",
     "express": "^4.16.2",
@@ -29,7 +31,8 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "sequelize": "^4.31.2"
+    "sequelize": "^4.31.2",
+    "unirest": "^0.6.0"
   },
   "keywords": [],
   "author": "",

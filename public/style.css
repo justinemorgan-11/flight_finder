@@ -1,0 +1,17 @@
+
+.flight-form {
+    background-color: rgba(84, 198, 181, 0.776);
+}
+
+.flight {
+    background-color: rgb(165, 123, 169);
+    color: white;
+    display: flex;
+    margin: 10px;
+}
+
+
+.airline-logo {
+    height: 50px;
+}
+
