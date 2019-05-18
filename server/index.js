@@ -39,6 +39,25 @@ app.get('/wallets', (req, res, next) => {
         .then(wallet => res.send(wallet));
 })
 
+app.get('/wallets/:id', (req, res, next) => {
+    Wallet.findOne({
+        where: {
+            id: req.params.id,
+        }
+    })
+        .then(wallet => res.send(wallet));
+})
+
+app.put('/wallets/:id', (req, res, next) => {
+    Wallet.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(wallet => wallet.update(req.body))
+        .then(wallet => res.send(wallet));
+})
+
 app.get('/airports', (req, res, next) => {
     Airport.findAll()
         .then(airports => res.send(airports));

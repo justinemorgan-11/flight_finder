@@ -233,12 +233,12 @@ var Flights = function (_React$Component) {
             destination: '',
             dateOut: '',
             dateIn: '',
-            quotes: [],
-            carriers: []
+            quotes: []
         };
 
         _this.searchFlight = _this.searchFlight.bind(_this);
         _this.handleChange = _this.handleChange.bind(_this);
+        _this.getAwardFlights = _this.getAwardFlights.bind(_this);
         return _this;
     }
 
@@ -246,6 +246,9 @@ var Flights = function (_React$Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             this.props.fetchFlights();
+            this.props.fetchAirports();
+            this.props.fetchWallets();
+            this.props.fetchPrograms();
         }
     }, {
         key: 'searchFlight',
@@ -264,10 +267,84 @@ var Flights = function (_React$Component) {
             _axios2.default.post('/flights', flight).then(function (res) {
                 return res.data.body;
             }).then(function (flights) {
-                return _this2.setState({
-                    quotes: flights.Quotes,
-                    carriers: flights.Carriers
+                var quotes = flights.Quotes.map(function (quote) {
+                    return {
+                        QuoteId: quote.QuoteId,
+                        MinPrice: quote.MinPrice,
+                        Carrier: quote ? flights.Carriers.find(function (carrier) {
+                            return carrier.CarrierId === quote.OutboundLeg.CarrierIds[0];
+                        }).Name : null,
+                        type: 'USD'
+                    };
                 });
+
+                // Chase + Amex are price based (1.5c/1c respectively)
+                // const amexValue = this.props.wallets.find(w => w.programName === 'Membership Rewards').valuation;
+                // const chaseValue = this.props.wallets.find(w => w.programName === 'Ulitmate Rewards').valuation;
+
+                // const amex = quotes.map(quote => {
+                //     quote.id = quote.id + 20000;
+                //     quote.MinPrice = (quote.MinPrice * amexValue);
+                //     quote.type = 'Membership Rewards';
+                //     return quote;
+                // });
+
+                // const chase = quotes.map(quote => {
+                //     quote.id = quote.id + 30000;
+                //     quote.MinPrice = (quote.MinPrice * chaseValue / 1.5);
+                //     quote.type = 'Ultimate Rewards';
+                //     return quote;
+                // });
+
+                var awardFlights = _this2.getAwardFlights();
+                quotes = quotes.concat(awardFlights);
+
+                console.log(quotes);
+
+                quotes = quotes.sort(function (q1, q2) {
+                    return q1.MinPrice - q2.MinPrice;
+                });
+
+                _this2.setState({
+                    quotes: quotes
+                });
+            });
+        }
+    }, {
+        key: 'getAwardFlights',
+        value: function getAwardFlights() {
+            var _this3 = this;
+
+            var _props = this.props,
+                airports = _props.airports,
+                flights = _props.flights,
+                wallets = _props.wallets,
+                programs = _props.programs;
+
+            var originRegion = airports.find(function (a) {
+                return a.iataCode === _this3.state.origin;
+            }).region;
+            var destinationRegion = airports.find(function (a) {
+                return a.iataCode === _this3.state.destination;
+            }).region;
+            var awardFlights = flights.filter(function (f) {
+                return f.origin === originRegion && f.destination === destinationRegion;
+            });
+            return awardFlights.map(function (award) {
+
+                var program = programs.find(function (p) {
+                    return p.id === award.programId;
+                });
+                var value = wallets.find(function (w) {
+                    return w.programName === program.name;
+                }).valuation / 100;
+
+                return {
+                    QuoteId: 10000 + award.id,
+                    MinPrice: 2 * award.points * value,
+                    Carrier: award.carrier,
+                    type: program.name
+                };
             });
         }
     }, {
@@ -286,15 +363,14 @@ var Flights = function (_React$Component) {
                 origin = _state.origin,
                 destination = _state.destination,
                 dateIn = _state.dateIn,
-                dateOut = _state.dateOut,
-                carriers = _state.carriers;
+                dateOut = _state.dateOut;
 
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'flight-search' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'flight-search' },
+                    { className: 'flight-sidebar' },
                     _react2.default.createElement(
                         'div',
                         { className: 'flight-map' },
@@ -312,7 +388,7 @@ var Flights = function (_React$Component) {
                                 'Origin:'
                             ),
                             _react2.default.createElement('br', null),
-                            _react2.default.createElement('input', { name: 'origin', value: origin, onChange: this.handleChange }),
+                            _react2.default.createElement('input', { name: 'origin', value: origin, onChange: this.handleChange, className: 'form-control' }),
                             _react2.default.createElement('br', null),
                             _react2.default.createElement(
                                 'label',
@@ -320,7 +396,7 @@ var Flights = function (_React$Component) {
                                 'Destination:'
                             ),
                             _react2.default.createElement('br', null),
-                            _react2.default.createElement('input', { name: 'destination', value: destination, onChange: this.handleChange }),
+                            _react2.default.createElement('input', { name: 'destination', value: destination, onChange: this.handleChange, className: 'form-control' }),
                             _react2.default.createElement('br', null),
                             _react2.default.createElement(
                                 'label',
@@ -328,7 +404,7 @@ var Flights = function (_React$Component) {
                                 'Date Out:'
                             ),
                             _react2.default.createElement('br', null),
-                            _react2.default.createElement('input', { type: 'date', name: 'dateOut', value: dateOut, onChange: this.handleChange }),
+                            _react2.default.createElement('input', { type: 'date', name: 'dateOut', value: dateOut, onChange: this.handleChange, className: 'form-control' }),
                             _react2.default.createElement('br', null),
                             _react2.default.createElement(
                                 'label',
@@ -336,11 +412,11 @@ var Flights = function (_React$Component) {
                                 'Date In:'
                             ),
                             _react2.default.createElement('br', null),
-                            _react2.default.createElement('input', { type: 'date', name: 'dateIn', value: dateIn, onChange: this.handleChange }),
+                            _react2.default.createElement('input', { type: 'date', name: 'dateIn', value: dateIn, onChange: this.handleChange, className: 'form-control' }),
                             _react2.default.createElement('br', null),
                             _react2.default.createElement(
                                 'button',
-                                { type: 'submit' },
+                                { type: 'submit', className: 'btn btn-secondary' },
                                 'Search'
                             )
                         )
@@ -348,12 +424,9 @@ var Flights = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'div',
-                    null,
+                    { className: 'flight-list' },
                     quotes.map(function (quote) {
-                        var name = carriers.find(function (carrier) {
-                            return carrier.CarrierId === quote.OutboundLeg.CarrierIds[0];
-                        }).Name;
-                        return _react2.default.createElement(_SingleFlight2.default, { key: quote.QuoteId, name: name, quote: quote });
+                        return _react2.default.createElement(_SingleFlight2.default, { key: quote.QuoteId, quote: quote });
                     })
                 )
             );
@@ -364,10 +437,16 @@ var Flights = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    var flights = state.flights;
+    var flights = state.flights,
+        airports = state.airports,
+        wallets = state.wallets,
+        programs = state.programs;
 
     return {
-        flights: flights
+        flights: flights,
+        airports: airports,
+        wallets: wallets,
+        programs: programs
     };
 };
 
@@ -375,6 +454,15 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         fetchFlights: function fetchFlights() {
             return dispatch((0, _index.fetchFlights)());
+        },
+        fetchAirports: function fetchAirports() {
+            return dispatch((0, _index.fetchAirports)());
+        },
+        fetchWallets: function fetchWallets() {
+            return dispatch((0, _index.fetchWallets)());
+        },
+        fetchPrograms: function fetchPrograms() {
+            return dispatch((0, _index.fetchPrograms)());
         }
     };
 };
@@ -463,7 +551,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Nav = function Nav() {
     return _react2.default.createElement(
         'nav',
-        { className: 'navbar navbar-expand-lg navbar-light bg-light' },
+        { className: 'navbar navbar-expand-lg navbar-dark bg-dark' },
         _react2.default.createElement(
             _reactRouterDom.Link,
             { to: '/flights', className: 'nav-link' },
@@ -557,17 +645,23 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SingleFlight = function SingleFlight(props) {
-    var quote = props.quote,
-        name = props.name;
+    var quote = props.quote;
 
     return _react2.default.createElement(
         'div',
         { key: quote.QuoteId, className: 'flight' },
-        _react2.default.createElement('img', { src: 'airlines/' + name.toLowerCase().replace(/ /g, '') + '.jpg', className: 'airline-logo' }),
+        _react2.default.createElement('img', { src: 'airlines/' + quote.Carrier.toLowerCase().replace(/ /g, '') + '.jpg', className: 'airline-logo' }),
         _react2.default.createElement(
             'p',
             null,
-            name
+            quote.Carrier,
+            ' (',
+            _react2.default.createElement(
+                'i',
+                null,
+                quote.type
+            ),
+            ')'
         ),
         _react2.default.createElement(
             'p',
@@ -602,9 +696,15 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _index = __webpack_require__(/*! ../store/index */ "./client/store/index.js");
+
+var _WalletEntry = __webpack_require__(/*! ./WalletEntry */ "./client/components/WalletEntry.js");
+
+var _WalletEntry2 = _interopRequireDefault(_WalletEntry);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -620,39 +720,22 @@ var Wallet = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Wallet.__proto__ || Object.getPrototypeOf(Wallet)).call(this));
 
-        _this.state = {
-            unitedairlines: 0,
-            americanairlines: 0,
-            delta: 0,
-            chase: 0,
-            americanexpress: 0
-        };
-        _this.handleChange = _this.handleChange.bind(_this);
-        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        _this.state = {};
         return _this;
     }
 
     _createClass(Wallet, [{
-        key: 'handleSubmit',
-        value: function handleSubmit(evt) {
-            evt.preventDefault();
-            console.log(this.state);
-        }
-    }, {
-        key: 'handleChange',
-        value: function handleChange(_ref) {
-            var target = _ref.target;
-
-            this.setState(_defineProperty({}, target.name, target.value));
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.props.fetchPrograms();
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
+            console.log(this.props);
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'wallet' },
                 _react2.default.createElement(
                     'form',
                     { onSubmit: this.handleSubmit, className: 'wallet-form' },
@@ -661,7 +744,7 @@ var Wallet = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                             'thead',
-                            null,
+                            { className: 'wallet-header' },
                             _react2.default.createElement(
                                 'tr',
                                 null,
@@ -680,44 +763,17 @@ var Wallet = function (_React$Component) {
                                     'th',
                                     null,
                                     'Valuation'
-                                )
+                                ),
+                                _react2.default.createElement('th', null)
                             )
                         ),
                         _react2.default.createElement(
                             'tbody',
                             null,
-                            ['americanairlines', 'unitedairlines', 'delta', 'chase', 'americanexpress'].map(function (program) {
-                                return _react2.default.createElement(
-                                    'tr',
-                                    { key: program },
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        _react2.default.createElement('img', { src: 'airlines/' + program.toLowerCase().replace(/ /g, '') + '.jpg', className: 'airline-logo' })
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        program
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        _react2.default.createElement('input', { className: 'form-control', type: 'number', name: program, value: _this2.state[program], onChange: _this2.handleChange })
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        _react2.default.createElement('input', { className: 'form-control', type: 'number', name: program, value: _this2.state[program], onChange: _this2.handleChange })
-                                    )
-                                );
+                            this.props.programs.map(function (program) {
+                                return _react2.default.createElement(_WalletEntry2.default, { key: program.id, program: program });
                             })
                         )
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { type: 'submit' },
-                        'Update Wallet'
                     )
                 )
             );
@@ -727,7 +783,177 @@ var Wallet = function (_React$Component) {
     return Wallet;
 }(_react2.default.Component);
 
-exports.default = Wallet;
+var mapStateToProps = function mapStateToProps(state) {
+    var programs = state.programs;
+
+    return {
+        programs: programs
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        fetchPrograms: function fetchPrograms() {
+            return dispatch((0, _index.fetchPrograms)());
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Wallet);
+
+/***/ }),
+
+/***/ "./client/components/WalletEntry.js":
+/*!******************************************!*\
+  !*** ./client/components/WalletEntry.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _index = __webpack_require__(/*! ../store/index */ "./client/store/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var WalletEntry = function (_React$Component) {
+    _inherits(WalletEntry, _React$Component);
+
+    function WalletEntry() {
+        _classCallCheck(this, WalletEntry);
+
+        var _this = _possibleConstructorReturn(this, (WalletEntry.__proto__ || Object.getPrototypeOf(WalletEntry)).call(this));
+
+        _this.state = {
+            quantity: 0,
+            valuation: 0
+        };
+
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        _this.componentDidMount = _this.componentDidMount.bind(_this);
+        return _this;
+    }
+
+    _createClass(WalletEntry, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            this.props.fetchWallet(1).then(function (wallet) {
+                return _this2.setState({
+                    quantity: wallet.wallet.quantity,
+                    valuation: wallet.wallet.valuation
+                });
+            });
+        }
+    }, {
+        key: 'handleChange',
+        value: function handleChange(_ref) {
+            var target = _ref.target;
+
+            this.setState(_defineProperty({}, target.name, Number(target.value)));
+        }
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit(evt) {
+            evt.preventDefault();
+            var _state = this.state,
+                quantity = _state.quantity,
+                valuation = _state.valuation;
+
+            this.props.updateWallet({ id: 1, quantity: quantity, valuation: valuation });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var program = this.props.program;
+
+            console.log(this.props);
+            return _react2.default.createElement(
+                'tr',
+                { key: program.id, className: 'wallet-row' },
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('img', { src: 'airlines/' + program.image, className: 'program-logo' })
+                ),
+                _react2.default.createElement(
+                    'td',
+                    { className: 'wallet-name' },
+                    _react2.default.createElement(
+                        'h6',
+                        { className: 'program-name' },
+                        program.name
+                    )
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('input', { className: 'form-control', type: 'number', name: 'quantity', value: this.state.quantity, onChange: this.handleChange })
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('input', { className: 'form-control', type: 'number', name: 'valuation', value: this.state.valuation, onChange: this.handleChange })
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                        'button',
+                        { type: 'submit', className: 'btn btn-secondary', onClick: this.handleSubmit },
+                        'Update'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return WalletEntry;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    var wallet = state.wallet;
+
+    return {
+        wallet: wallet
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        fetchWallet: function fetchWallet(id) {
+            return dispatch((0, _index.fetchWallet)(id));
+        },
+        updateWallet: function updateWallet(wallet) {
+            return dispatch((0, _index.updateWallet)(wallet));
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(WalletEntry);
 
 /***/ }),
 
@@ -764,6 +990,64 @@ _reactDom2.default.render(_react2.default.createElement(
     { store: _index.store },
     _react2.default.createElement(_App2.default, null)
 ), document.getElementById('app'));
+
+/***/ }),
+
+/***/ "./client/store/airports.js":
+/*!**********************************!*\
+  !*** ./client/store/airports.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.airports = exports.fetchAirports = undefined;
+
+var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// ACTION TYPE
+var SET_AIRPORTS = 'SET_AIRPORTS';
+
+// ACTION CREATOR
+var setAirports = function setAirports(airports) {
+    return {
+        type: SET_AIRPORTS,
+        airports: airports
+    };
+};
+
+// THUNKS
+var fetchAirports = exports.fetchAirports = function fetchAirports() {
+    return function (dispatch) {
+        return _axios2.default.get('/airports').then(function (res) {
+            return res.data;
+        }).then(function (airports) {
+            return dispatch(setAirports(airports));
+        });
+    };
+};
+
+// REDUCER
+var airports = exports.airports = function airports() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var action = arguments[1];
+
+    switch (action.type) {
+        case SET_AIRPORTS:
+            return action.airports;
+        default:
+            return state;
+    }
+};
 
 /***/ }),
 
@@ -838,7 +1122,7 @@ var flights = exports.flights = function flights() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.store = exports.fetchWallets = exports.fetchPrograms = exports.fetchFlights = undefined;
+exports.store = exports.updateWallet = exports.fetchWallet = exports.fetchAirports = exports.fetchWallets = exports.fetchPrograms = exports.fetchFlights = undefined;
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
@@ -854,17 +1138,26 @@ var _wallets = __webpack_require__(/*! ./wallets */ "./client/store/wallets.js")
 
 var _programs = __webpack_require__(/*! ./programs */ "./client/store/programs.js");
 
+var _airports = __webpack_require__(/*! ./airports */ "./client/store/airports.js");
+
+var _wallet = __webpack_require__(/*! ./wallet */ "./client/store/wallet.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.fetchFlights = _flights.fetchFlights;
 exports.fetchPrograms = _programs.fetchPrograms;
 exports.fetchWallets = _wallets.fetchWallets;
+exports.fetchAirports = _airports.fetchAirports;
+exports.fetchWallet = _wallet.fetchWallet;
+exports.updateWallet = _wallet.updateWallet;
 
 
 var reducer = (0, _redux.combineReducers)({
     flights: _flights.flights,
     wallets: _wallets.wallets,
-    programs: _programs.programs
+    programs: _programs.programs,
+    airports: _airports.airports,
+    wallet: _wallet.wallet
 });
 
 var store = exports.store = (0, _redux.createStore)(reducer, (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(_reduxThunk2.default)));
@@ -922,6 +1215,74 @@ var programs = exports.programs = function programs() {
     switch (action.type) {
         case SET_PROGRAMS:
             return action.programs;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
+/***/ "./client/store/wallet.js":
+/*!********************************!*\
+  !*** ./client/store/wallet.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.wallet = exports.updateWallet = exports.fetchWallet = undefined;
+
+var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// ACTION TYPES
+var SET_WALLET = 'SET_WALLET';
+
+// ACTION CREATORS
+var setWallet = function setWallet(wallet) {
+    return {
+        type: SET_WALLET,
+        wallet: wallet
+    };
+};
+
+// THUNKS
+var fetchWallet = exports.fetchWallet = function fetchWallet(id) {
+    return function (dispatch) {
+        return _axios2.default.get('/wallets/' + id).then(function (res) {
+            return res.data;
+        }).then(function (wallet) {
+            return dispatch(setWallet(wallet));
+        });
+    };
+};
+
+var updateWallet = exports.updateWallet = function updateWallet(wallet) {
+    return function (dispatch) {
+        return _axios2.default.put('/wallets/' + wallet.id, wallet).then(function (res) {
+            return res.data;
+        }).then(function (w) {
+            return dispatch(setWallet(w));
+        });
+    };
+};
+
+// REDUCER
+var wallet = exports.wallet = function wallet() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var action = arguments[1];
+
+    switch (action.type) {
+        case SET_WALLET:
+            return action.wallet;
         default:
             return state;
     }

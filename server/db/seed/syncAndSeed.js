@@ -13,7 +13,8 @@ const setProgramId = (flights, programs) => {
 
 const setProgramIdWallet = (wallets, programs) => {
     return wallets.map(wallet => {
-        const programId = programs.find(p => p.name === wallet.programName).id;
+        const program = programs.find(p => p.name === wallet.programName);
+        const programId = program ? program.id : null;
         return wallet.update({ programId });
     })
 }

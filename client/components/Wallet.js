@@ -1,61 +1,59 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchPrograms } from '../store/index';
+import WalletEntry from './WalletEntry';
 
 class Wallet extends React.Component {
     constructor() {
         super();
         this.state = {
-            unitedairlines: 0,
-            americanairlines: 0,
-            delta: 0,
-            chase: 0,
-            americanexpress: 0,
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(evt) {
-        evt.preventDefault();
-        console.log(this.state);
-    }
-
-    handleChange({ target }) {
-        this.setState({
-            [target.name]: target.value,
-        })
+    componentDidMount() {
+        this.props.fetchPrograms();
     }
 
     render() {
+        console.log(this.props);
         return (
-            <div>
+            <div className="wallet">
                 <form onSubmit={this.handleSubmit} className="wallet-form">
                     <table>
-                        <thead>
+                        <thead className="wallet-header">
                             <tr>
                                 <th />
                                 <th>Program</th>
                                 <th>Quantity</th>
                                 <th>Valuation</th>
+                                <th />
                             </tr>
                         </thead>
                         <tbody>
-                            {['americanairlines', 'unitedairlines', 'delta', 'chase', 'americanexpress'].map(program => {
+                            {this.props.programs.map(program => {
                                 return (
-                                    <tr key={program}>
-                                        <td><img src={`airlines/${program.toLowerCase().replace(/ /g, '')}.jpg`} className="airline-logo" /></td>
-                                        <td>{program}</td>
-                                        <td><input className="form-control" type="number" name={program} value={this.state[program]} onChange={this.handleChange} /></td>
-                                        <td><input className="form-control" type="number" name={program} value={this.state[program]} onChange={this.handleChange} /></td>
-                                    </tr>
+                                    <WalletEntry key={program.id} program={program} />
                                 )
                             })}
                         </tbody>
                     </table>
-                    <button type="submit">Update Wallet</button>
                 </form>
             </div>
         )
     }
 }
 
-export default Wallet;
+const mapStateToProps = state => {
+    const { programs } = state;
+    return {
+        programs,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchPrograms: () => dispatch(fetchPrograms()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wallet);

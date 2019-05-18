@@ -1,4 +1,4 @@
-﻿openFlightsId,airportName,city,country,iataAirport,latitude,longitude
+﻿openFlightsId,airportName,city,country,iataCode,latitude,longitude
 1,Goroka Airport,Goroka,Papua New Guinea,GKA,-6.081689835,145.3919983
 2,Madang Airport,Madang,Papua New Guinea,MAG,-5.207079887,145.7890015
 3,Mount Hagen Kagamuga Airport,Mount Hagen,Papua New Guinea,HGU,-5.826789856,144.2960052

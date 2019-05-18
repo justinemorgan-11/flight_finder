@@ -1,31 +1,72 @@
 
+body {
+    background-color: #B3CDE0;
+}
+
 .flight-form {
     background-color: rgba(84, 198, 181, 0.776);
     padding: 2%;
     justify-content: right;
-    width: 30%;
+    width: 10   0%;
 }
 
 .flight {
-    background-color: rgb(165, 123, 169);
+    background-color: #005B95;
     color: white;
     display: flex;
     margin: 10px;
+    border-radius: 8px;
+    padding: 2%;
 }
 
 .flight-search {
-    display: flex;
+    display: flex;  
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
 }
 
-.flight-map {
-    width: 70%;
+.flight-sidebar {
+    background-color: rgb(132, 132, 158);
+    width: 40%;
+    height: 100%;
+    padding: 2%;
+}
+
+.flight-list {
+    width: 60%;
 }
 
 .airline-logo {
     height: 50px;
 }
 
+.program-logo {
+    height: 70px;
+}
+
 .map {
     width: 100%;
 }
 
+.wallet {
+    background-color: #005B95;
+    width: 50%;
+    border-radius: 8px;
+    padding: 2%;
+    margin-top: 5%;
+    margin-left: 25%;
+}
+
+.wallet-header {
+    background-color: #031F4B;
+    color: white;
+}
+
+.wallet-name {
+    text-align: center;
+}
+
+.program-name { 
+    color: white;
+}
