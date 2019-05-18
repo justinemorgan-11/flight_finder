@@ -1,0 +1,451 @@
+﻿origin,destination,carrier,class,points
+North America,North America,United Airlines,economy,10000
+North America,North America,United Airlines,first,25000
+North America,Mexico,United Airlines,economy,17500
+North America,Mexico,United Airlines,first,30000
+North America,Caribbean,United Airlines,economy,17500
+North America,Caribbean,United Airlines,first,30000
+North America,Central America,United Airlines,economy,17500
+North America,Central America,United Airlines,first,30000
+North America,Northern South America,United Airlines,economy,20000
+North America,Northern South America,United Airlines,first,35000
+North America,Southern South America,United Airlines,economy,30000
+North America,Southern South America,United Airlines,first,60000
+North America,Europe,United Airlines,economy,30000
+North America,Europe,United Airlines,first,60000
+North America,Middle East,United Airlines,economy,42500
+North America,Middle East,United Airlines,first,75000
+North America,Northern Africa,United Airlines,economy,40000
+North America,Northern Africa,United Airlines,first,70000
+North America,Central & Southern Africa,United Airlines,economy,40000
+North America,Central & Southern Africa,United Airlines,first,70000
+North America,North Asia,United Airlines,economy,35000
+North America,North Asia,United Airlines,first,70000
+North America,Central Asia,United Airlines,economy,42500
+North America,Central Asia,United Airlines,first,75000
+North America,South Asia,United Airlines,economy,35000
+North America,South Asia,United Airlines,first,70000
+North America,Japan,United Airlines,economy,35000
+North America,Japan,United Airlines,first,70000
+North America,Oceania,United Airlines,economy,40000
+North America,Oceania,United Airlines,first,80000
+Mexico,North America,United Airlines,economy,17500
+Mexico,North America,United Airlines,first,30000
+Mexico,Mexico,United Airlines,economy,8000
+Mexico,Mexico,United Airlines,first,25000
+Mexico,Caribbean,United Airlines,economy,15000
+Mexico,Caribbean,United Airlines,first,20000
+Mexico,Central America,United Airlines,economy,15000
+Mexico,Central America,United Airlines,first,20000
+Mexico,Northern South America,United Airlines,economy,15000
+Mexico,Northern South America,United Airlines,first,25000
+Mexico,Southern South America,United Airlines,economy,25000
+Mexico,Southern South America,United Airlines,first,45000
+Mexico,Europe,United Airlines,economy,35000
+Mexico,Europe,United Airlines,first,65000
+Mexico,Middle East,United Airlines,economy,45000
+Mexico,Middle East,United Airlines,first,75000
+Mexico,Northern Africa,United Airlines,economy,50000
+Mexico,Northern Africa,United Airlines,first,80000
+Mexico,Central & Southern Africa,United Airlines,economy,55000
+Mexico,Central & Southern Africa,United Airlines,first,85000
+Mexico,North Asia,United Airlines,economy,37500
+Mexico,North Asia,United Airlines,first,75000
+Mexico,Central Asia,United Airlines,economy,50000
+Mexico,Central Asia,United Airlines,first,80000
+Mexico,South Asia,United Airlines,economy,45000
+Mexico,South Asia,United Airlines,first,85000
+Mexico,Japan,United Airlines,economy,37500
+Mexico,Japan,United Airlines,first,75000
+Mexico,Oceania,United Airlines,economy,45000
+Mexico,Oceania,United Airlines,first,85000
+Caribbean,North America,United Airlines,economy,17500
+Caribbean,North America,United Airlines,first,30000
+Caribbean,Mexico,United Airlines,economy,15000
+Caribbean,Mexico,United Airlines,first,20000
+Caribbean,Caribbean,United Airlines,economy,8000
+Caribbean,Caribbean,United Airlines,first,25000
+Caribbean,Central America,United Airlines,economy,12500
+Caribbean,Central America,United Airlines,first,20000
+Caribbean,Northern South America,United Airlines,economy,12500
+Caribbean,Northern South America,United Airlines,first,20000
+Caribbean,Southern South America,United Airlines,economy,20000
+Caribbean,Southern South America,United Airlines,first,40000
+Caribbean,Europe,United Airlines,economy,35000
+Caribbean,Europe,United Airlines,first,65000
+Caribbean,Middle East,United Airlines,economy,45000
+Caribbean,Middle East,United Airlines,first,75000
+Caribbean,Northern Africa,United Airlines,economy,50000
+Caribbean,Northern Africa,United Airlines,first,80000
+Caribbean,Central & Southern Africa,United Airlines,economy,55000
+Caribbean,Central & Southern Africa,United Airlines,first,85000
+Caribbean,North Asia,United Airlines,economy,37500
+Caribbean,North Asia,United Airlines,first,75000
+Caribbean,Central Asia,United Airlines,economy,50000
+Caribbean,Central Asia,United Airlines,first,80000
+Caribbean,South Asia,United Airlines,economy,45000
+Caribbean,South Asia,United Airlines,first,85000
+Caribbean,Japan,United Airlines,economy,37500
+Caribbean,Japan,United Airlines,first,75000
+Caribbean,Oceania,United Airlines,economy,45000
+Caribbean,Oceania,United Airlines,first,80000
+Central America,North America,United Airlines,economy,17500
+Central America,North America,United Airlines,first,30000
+Central America,Mexico,United Airlines,economy,15000
+Central America,Mexico,United Airlines,first,25000
+Central America,Caribbean,United Airlines,economy,12500
+Central America,Caribbean,United Airlines,first,20000
+Central America,Central America,United Airlines,economy,8000
+Central America,Central America,United Airlines,first,20000
+Central America,Northern South America,United Airlines,economy,12500
+Central America,Northern South America,United Airlines,first,20000
+Central America,Southern South America,United Airlines,economy,20000
+Central America,Southern South America,United Airlines,first,40000
+Central America,Europe,United Airlines,economy,35000
+Central America,Europe,United Airlines,first,65000
+Central America,Middle East,United Airlines,economy,45000
+Central America,Middle East,United Airlines,first,75000
+Central America,Northern Africa,United Airlines,economy,50000
+Central America,Northern Africa,United Airlines,first,80000
+Central America,Central & Southern Africa,United Airlines,economy,55000
+Central America,Central & Southern Africa,United Airlines,first,85000
+Central America,North Asia,United Airlines,economy,37500
+Central America,North Asia,United Airlines,first,75000
+Central America,Central Asia,United Airlines,economy,50000
+Central America,Central Asia,United Airlines,first,80000
+Central America,South Asia,United Airlines,economy,45000
+Central America,South Asia,United Airlines,first,85000
+Central America,Japan,United Airlines,economy,37500
+Central America,Japan,United Airlines,first,75000
+Central America,Oceania,United Airlines,economy,45000
+Central America,Oceania,United Airlines,first,80000
+Northern South America,North America,United Airlines,economy,20000
+Northern South America,North America,United Airlines,first,35000
+Northern South America,Mexico,United Airlines,economy,15000
+Northern South America,Mexico,United Airlines,first,25000
+Northern South America,Caribbean,United Airlines,economy,12500
+Northern South America,Caribbean,United Airlines,first,25000
+Northern South America,Central America,United Airlines,economy,12500
+Northern South America,Central America,United Airlines,first,20000
+Northern South America,Northern South America,United Airlines,economy,8000
+Northern South America,Northern South America,United Airlines,first,20000
+Northern South America,Southern South America,United Airlines,economy,20000
+Northern South America,Southern South America,United Airlines,first,40000
+Northern South America,Europe,United Airlines,economy,40000
+Northern South America,Europe,United Airlines,first,70000
+Northern South America,Middle East,United Airlines,economy,50000
+Northern South America,Middle East,United Airlines,first,75000
+Northern South America,Northern Africa,United Airlines,economy,55000
+Northern South America,Northern Africa,United Airlines,first,80000
+Northern South America,Central & Southern Africa,United Airlines,economy,60000
+Northern South America,Central & Southern Africa,United Airlines,first,85000
+Northern South America,North Asia,United Airlines,economy,45000
+Northern South America,North Asia,United Airlines,first,75000
+Northern South America,Central Asia,United Airlines,economy,55000
+Northern South America,Central Asia,United Airlines,first,80000
+Northern South America,South Asia,United Airlines,economy,50000
+Northern South America,South Asia,United Airlines,first,85000
+Northern South America,Japan,United Airlines,economy,45000
+Northern South America,Japan,United Airlines,first,75000
+Northern South America,Oceania,United Airlines,economy,50000
+Northern South America,Oceania,United Airlines,first,85000
+Southern South America,North America,United Airlines,economy,30000
+Southern South America,North America,United Airlines,first,60000
+Southern South America,Mexico,United Airlines,economy,25000
+Southern South America,Mexico,United Airlines,first,45000
+Southern South America,Caribbean,United Airlines,economy,20000
+Southern South America,Caribbean,United Airlines,first,40000
+Southern South America,Central America,United Airlines,economy,20000
+Southern South America,Central America,United Airlines,first,40000
+Southern South America,Northern South America,United Airlines,economy,20000
+Southern South America,Northern South America,United Airlines,first,40000
+Southern South America,Southern South America,United Airlines,economy,8000
+Southern South America,Southern South America,United Airlines,first,25000
+Southern South America,Europe,United Airlines,economy,47500
+Southern South America,Europe,United Airlines,first,77500
+Southern South America,Middle East,United Airlines,economy,60000
+Southern South America,Middle East,United Airlines,first,80000
+Southern South America,Northern Africa,United Airlines,economy,30000
+Southern South America,Northern Africa,United Airlines,first,87500
+Southern South America,Central & Southern Africa,United Airlines,economy,35000
+Southern South America,Central & Southern Africa,United Airlines,first,92500
+Southern South America,North Asia,United Airlines,economy,55000
+Southern South America,North Asia,United Airlines,first,75000
+Southern South America,Central Asia,United Airlines,economy,65000
+Southern South America,Central Asia,United Airlines,first,85000
+Southern South America,South Asia,United Airlines,economy,55000
+Southern South America,South Asia,United Airlines,first,85000
+Southern South America,Japan,United Airlines,economy,55000
+Southern South America,Japan,United Airlines,first,75000
+Southern South America,Oceania,United Airlines,economy,60000
+Southern South America,Oceania,United Airlines,first,80000
+Europe,North America,United Airlines,economy,30000
+Europe,North America,United Airlines,first,60000
+Europe,Mexico,United Airlines,economy,35
+Europe,Mexico,United Airlines,first,65
+Europe,Caribbean,United Airlines,economy,35
+Europe,Caribbean,United Airlines,first,65
+Europe,Central America,United Airlines,economy,35
+Europe,Central America,United Airlines,first,65
+Europe,Northern South America,United Airlines,economy,40
+Europe,Northern South America,United Airlines,first,70
+Europe,Southern South America,United Airlines,economy,47.5
+Europe,Southern South America,United Airlines,first,77.5
+Europe,Europe,United Airlines,economy,8
+Europe,Europe,United Airlines,first,25
+Europe,Middle East,United Airlines,economy,25
+Europe,Middle East,United Airlines,first,40
+Europe,Northern Africa,United Airlines,economy,25
+Europe,Northern Africa,United Airlines,first,40
+Europe,Central & Southern Africa,United Airlines,economy,30
+Europe,Central & Southern Africa,United Airlines,first,45
+Europe,North Asia,United Airlines,economy,45
+Europe,North Asia,United Airlines,first,65
+Europe,Central Asia,United Airlines,economy,30
+Europe,Central Asia,United Airlines,first,45
+Europe,South Asia,United Airlines,economy,45
+Europe,South Asia,United Airlines,first,85
+Europe,Japan,United Airlines,economy,45
+Europe,Japan,United Airlines,first,65
+Europe,Oceania,United Airlines,economy,60
+Europe,Oceania,United Airlines,first,80
+Middle East,North America,United Airlines,economy,42.5
+Middle East,North America,United Airlines,first,75
+Middle East,Mexico,United Airlines,economy,45
+Middle East,Mexico,United Airlines,first,75
+Middle East,Caribbean,United Airlines,economy,45
+Middle East,Caribbean,United Airlines,first,75
+Middle East,Central America,United Airlines,economy,45
+Middle East,Central America,United Airlines,first,75
+Middle East,Northern South America,United Airlines,economy,50
+Middle East,Northern South America,United Airlines,first,75
+Middle East,Southern South America,United Airlines,economy,60
+Middle East,Southern South America,United Airlines,first,80
+Middle East,Europe,United Airlines,economy,25
+Middle East,Europe,United Airlines,first,40
+Middle East,Middle East,United Airlines,economy,8
+Middle East,Middle East,United Airlines,first,30
+Middle East,Northern Africa,United Airlines,economy,27.5
+Middle East,Northern Africa,United Airlines,first,42.5
+Middle East,Central & Southern Africa,United Airlines,economy,30
+Middle East,Central & Southern Africa,United Airlines,first,45
+Middle East,North Asia,United Airlines,economy,40
+Middle East,North Asia,United Airlines,first,55
+Middle East,Central Asia,United Airlines,economy,22.5
+Middle East,Central Asia,United Airlines,first,35
+Middle East,South Asia,United Airlines,economy,35
+Middle East,South Asia,United Airlines,first,50
+Middle East,Japan,United Airlines,economy,40
+Middle East,Japan,United Airlines,first,55
+Middle East,Oceania,United Airlines,economy,45
+Middle East,Oceania,United Airlines,first,65
+Northern Africa,North America,United Airlines,economy,40
+Northern Africa,North America,United Airlines,first,70
+Northern Africa,Mexico,United Airlines,economy,50
+Northern Africa,Mexico,United Airlines,first,80
+Northern Africa,Caribbean,United Airlines,economy,50
+Northern Africa,Caribbean,United Airlines,first,80
+Northern Africa,Central America,United Airlines,economy,50
+Northern Africa,Central America,United Airlines,first,80
+Northern Africa,Northern South America,United Airlines,economy,55
+Northern Africa,Northern South America,United Airlines,first,80
+Northern Africa,Southern South America,United Airlines,economy,30
+Northern Africa,Southern South America,United Airlines,first,87.5
+Northern Africa,Europe,United Airlines,economy,25
+Northern Africa,Europe,United Airlines,first,40
+Northern Africa,Middle East,United Airlines,economy,27.5
+Northern Africa,Middle East,United Airlines,first,42.5
+Northern Africa,Northern Africa,United Airlines,economy,8
+Northern Africa,Northern Africa,United Airlines,first,30
+Northern Africa,Central & Southern Africa,United Airlines,economy,20
+Northern Africa,Central & Southern Africa,United Airlines,first,35
+Northern Africa,North Asia,United Airlines,economy,45
+Northern Africa,North Asia,United Airlines,first,65
+Northern Africa,Central Asia,United Airlines,economy,30
+Northern Africa,Central Asia,United Airlines,first,45
+Northern Africa,South Asia,United Airlines,economy,45
+Northern Africa,South Asia,United Airlines,first,85
+Northern Africa,Japan,United Airlines,economy,45
+Northern Africa,Japan,United Airlines,first,65
+Northern Africa,Oceania,United Airlines,economy,45
+Northern Africa,Oceania,United Airlines,first,65
+Central & Southern Africa,North America,United Airlines,economy,40
+Central & Southern Africa,North America,United Airlines,first,70
+Central & Southern Africa,Mexico,United Airlines,economy,55
+Central & Southern Africa,Mexico,United Airlines,first,85
+Central & Southern Africa,Caribbean,United Airlines,economy,55
+Central & Southern Africa,Caribbean,United Airlines,first,85
+Central & Southern Africa,Central America,United Airlines,economy,55
+Central & Southern Africa,Central America,United Airlines,first,85
+Central & Southern Africa,Northern South America,United Airlines,economy,60
+Central & Southern Africa,Northern South America,United Airlines,first,85
+Central & Southern Africa,Southern South America,United Airlines,economy,35
+Central & Southern Africa,Southern South America,United Airlines,first,92.5
+Central & Southern Africa,Europe,United Airlines,economy,30
+Central & Southern Africa,Europe,United Airlines,first,45
+Central & Southern Africa,Middle East,United Airlines,economy,30
+Central & Southern Africa,Middle East,United Airlines,first,45
+Central & Southern Africa,Northern Africa,United Airlines,economy,20
+Central & Southern Africa,Northern Africa,United Airlines,first,35
+Central & Southern Africa,Central & Southern Africa,United Airlines,economy,8
+Central & Southern Africa,Central & Southern Africa,United Airlines,first,30
+Central & Southern Africa,North Asia,United Airlines,economy,50
+Central & Southern Africa,North Asia,United Airlines,first,75
+Central & Southern Africa,Central Asia,United Airlines,economy,35
+Central & Southern Africa,Central Asia,United Airlines,first,50
+Central & Southern Africa,South Asia,United Airlines,economy,45
+Central & Southern Africa,South Asia,United Airlines,first,85
+Central & Southern Africa,Japan,United Airlines,economy,50
+Central & Southern Africa,Japan,United Airlines,first,75
+Central & Southern Africa,Oceania,United Airlines,economy,50
+Central & Southern Africa,Oceania,United Airlines,first,75
+North Asia,North America,United Airlines,economy,35
+North Asia,North America,United Airlines,first,70
+North Asia,Mexico,United Airlines,economy,37.5
+North Asia,Mexico,United Airlines,first,75
+North Asia,Caribbean,United Airlines,economy,37.5
+North Asia,Caribbean,United Airlines,first,75
+North Asia,Central America,United Airlines,economy,37.5
+North Asia,Central America,United Airlines,first,75
+North Asia,Northern South America,United Airlines,economy,45
+North Asia,Northern South America,United Airlines,first,75
+North Asia,Southern South America,United Airlines,economy,55
+North Asia,Southern South America,United Airlines,first,75
+North Asia,Europe,United Airlines,economy,45
+North Asia,Europe,United Airlines,first,65
+North Asia,Middle East,United Airlines,economy,40
+North Asia,Middle East,United Airlines,first,55
+North Asia,Northern Africa,United Airlines,economy,45
+North Asia,Northern Africa,United Airlines,first,65
+North Asia,Central & Southern Africa,United Airlines,economy,50
+North Asia,Central & Southern Africa,United Airlines,first,75
+North Asia,North Asia,United Airlines,economy,8
+North Asia,North Asia,United Airlines,first,22.5
+North Asia,Central Asia,United Airlines,economy,25
+North Asia,Central Asia,United Airlines,first,45
+North Asia,South Asia,United Airlines,economy,20
+North Asia,South Asia,United Airlines,first,35
+North Asia,Japan,United Airlines,economy,8
+North Asia,Japan,United Airlines,first,25
+North Asia,Oceania,United Airlines,economy,30
+North Asia,Oceania,United Airlines,first,45
+Central Asia,North America,United Airlines,economy,42.5
+Central Asia,North America,United Airlines,first,75
+Central Asia,Mexico,United Airlines,economy,50
+Central Asia,Mexico,United Airlines,first,80
+Central Asia,Caribbean,United Airlines,economy,50
+Central Asia,Caribbean,United Airlines,first,80
+Central Asia,Central America,United Airlines,economy,50
+Central Asia,Central America,United Airlines,first,80
+Central Asia,Northern South America,United Airlines,economy,55
+Central Asia,Northern South America,United Airlines,first,80
+Central Asia,Southern South America,United Airlines,economy,65
+Central Asia,Southern South America,United Airlines,first,85
+Central Asia,Europe,United Airlines,economy,30
+Central Asia,Europe,United Airlines,first,45
+Central Asia,Middle East,United Airlines,economy,22.5
+Central Asia,Middle East,United Airlines,first,35
+Central Asia,Northern Africa,United Airlines,economy,30
+Central Asia,Northern Africa,United Airlines,first,45
+Central Asia,Central & Southern Africa,United Airlines,economy,35
+Central Asia,Central & Southern Africa,United Airlines,first,50
+Central Asia,North Asia,United Airlines,economy,25
+Central Asia,North Asia,United Airlines,first,45
+Central Asia,Central Asia,United Airlines,economy,8
+Central Asia,Central Asia,United Airlines,first,35
+Central Asia,South Asia,United Airlines,economy,25
+Central Asia,South Asia,United Airlines,first,40
+Central Asia,Japan,United Airlines,economy,25
+Central Asia,Japan,United Airlines,first,45
+Central Asia,Oceania,United Airlines,economy,40
+Central Asia,Oceania,United Airlines,first,60
+South Asia,North America,United Airlines,economy,40
+South Asia,North America,United Airlines,first,75
+South Asia,Mexico,United Airlines,economy,45
+South Asia,Mexico,United Airlines,first,85
+South Asia,Caribbean,United Airlines,economy,45
+South Asia,Caribbean,United Airlines,first,85
+South Asia,Central America,United Airlines,economy,45
+South Asia,Central America,United Airlines,first,85
+South Asia,Northern South America,United Airlines,economy,50
+South Asia,Northern South America,United Airlines,first,85
+South Asia,Southern South America,United Airlines,economy,55
+South Asia,Southern South America,United Airlines,first,85
+South Asia,Europe,United Airlines,economy,45
+South Asia,Europe,United Airlines,first,85
+South Asia,Middle East,United Airlines,economy,35
+South Asia,Middle East,United Airlines,first,50
+South Asia,Northern Africa,United Airlines,economy,45
+South Asia,Northern Africa,United Airlines,first,85
+South Asia,Central & Southern Africa,United Airlines,economy,45
+South Asia,Central & Southern Africa,United Airlines,first,85
+South Asia,North Asia,United Airlines,economy,20
+South Asia,North Asia,United Airlines,first,35
+South Asia,Central Asia,United Airlines,economy,25
+South Asia,Central Asia,United Airlines,first,40
+South Asia,South Asia,United Airlines,economy,8
+South Asia,South Asia,United Airlines,first,25
+South Asia,Japan,United Airlines,economy,20
+South Asia,Japan,United Airlines,first,35
+South Asia,Oceania,United Airlines,economy,25
+South Asia,Oceania,United Airlines,first,40
+Japan,North America,United Airlines,economy,35
+Japan,North America,United Airlines,first,70
+Japan,Mexico,United Airlines,economy,37.5
+Japan,Mexico,United Airlines,first,75
+Japan,Caribbean,United Airlines,economy,37.5
+Japan,Caribbean,United Airlines,first,75
+Japan,Central America,United Airlines,economy,37.5
+Japan,Central America,United Airlines,first,75
+Japan,Northern South America,United Airlines,economy,45
+Japan,Northern South America,United Airlines,first,75
+Japan,Southern South America,United Airlines,economy,55
+Japan,Southern South America,United Airlines,first,75
+Japan,Europe,United Airlines,economy,45
+Japan,Europe,United Airlines,first,65
+Japan,Middle East,United Airlines,economy,40
+Japan,Middle East,United Airlines,first,55
+Japan,Northern Africa,United Airlines,economy,45
+Japan,Northern Africa,United Airlines,first,65
+Japan,Central & Southern Africa,United Airlines,economy,50
+Japan,Central & Southern Africa,United Airlines,first,75
+Japan,North Asia,United Airlines,economy,8
+Japan,North Asia,United Airlines,first,25
+Japan,Central Asia,United Airlines,economy,25
+Japan,Central Asia,United Airlines,first,45
+Japan,South Asia,United Airlines,economy,20
+Japan,South Asia,United Airlines,first,35
+Japan,Japan,United Airlines,economy,5
+Japan,Japan,United Airlines,first,12
+Japan,Oceania,United Airlines,economy,30
+Japan,Oceania,United Airlines,first,45
+Oceania,North America,United Airlines,economy,40
+Oceania,North America,United Airlines,first,80
+Oceania,Mexico,United Airlines,economy,45
+Oceania,Mexico,United Airlines,first,85
+Oceania,Caribbean,United Airlines,economy,45
+Oceania,Caribbean,United Airlines,first,80
+Oceania,Central America,United Airlines,economy,45
+Oceania,Central America,United Airlines,first,80
+Oceania,Northern South America,United Airlines,economy,50
+Oceania,Northern South America,United Airlines,first,85
+Oceania,Southern South America,United Airlines,economy,60
+Oceania,Southern South America,United Airlines,first,80
+Oceania,Europe,United Airlines,economy,60
+Oceania,Europe,United Airlines,first,80
+Oceania,Middle East,United Airlines,economy,45
+Oceania,Middle East,United Airlines,first,65
+Oceania,Northern Africa,United Airlines,economy,60
+Oceania,Northern Africa,United Airlines,first,80
+Oceania,Central & Southern Africa,United Airlines,economy,50
+Oceania,Central & Southern Africa,United Airlines,first,75
+Oceania,North Asia,United Airlines,economy,30
+Oceania,North Asia,United Airlines,first,45
+Oceania,Central Asia,United Airlines,economy,40
+Oceania,Central Asia,United Airlines,first,60
+Oceania,South Asia,United Airlines,economy,25
+Oceania,South Asia,United Airlines,first,40
+Oceania,Japan,United Airlines,economy,30
+Oceania,Japan,United Airlines,first,45
+Oceania,Oceania,United Airlines,economy,8
+Oceania,Oceania,United Airlines,first,25

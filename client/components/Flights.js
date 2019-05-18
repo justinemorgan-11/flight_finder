@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import SingleFlight from './SingleFlight';
+import { fetchFlights } from '../store/index';
 
 class Flights extends React.Component {
 
@@ -17,6 +19,10 @@ class Flights extends React.Component {
 
         this.searchFlight = this.searchFlight.bind(this);
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.fetchFlights();
     }
 
     searchFlight(evt) {
@@ -44,11 +50,14 @@ class Flights extends React.Component {
     }
 
     render() {
-        console.log(this.state);
+        console.log(this.props);
         const { quotes, origin, destination, dateIn, dateOut, carriers } = this.state;
         return (
             <div>
-                <div>
+                <div className="flight-search">
+                    <div className="flight-map">
+                        <img src="map.jpg" className="map" />
+                    </div>
                     <div className="flight-form">
                         <form onSubmit={this.searchFlight}>
                             <label htmlFor="origin">Origin:</label>
@@ -84,4 +93,17 @@ class Flights extends React.Component {
     }
 }
 
-export default Flights;
+const mapStateToProps = state => {
+    const { flights } = state;
+    return {
+        flights,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchFlights: () => dispatch(fetchFlights()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Flights);

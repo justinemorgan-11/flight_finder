@@ -15,16 +15,18 @@ const Airport = db.define('airport', {
     country: {
         type: db.Sequelize.STRING,
     },
+    region: {
+        type: db.Sequelize.STRING,
+    },
     iataCode: {
         type: db.Sequelize.STRING,
     },
     latitude: {
-        type: db.Sequelize.NUMBER,
+        type: db.Sequelize.FLOAT,
     },
     longitude: {
-        type: db.Sequelize.NUMBER,
+        type: db.Sequelize.FLOAT,
     },
 });
-
 
 module.exports = Airport;

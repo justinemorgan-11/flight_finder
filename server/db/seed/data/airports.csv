@@ -862,10 +862,10 @@
 880,Maun Airport,Maun,Botswana,MUB,-19.97260094,23.43110085
 881,Sir Seretse Khama International Airport,Gaberone,Botswana,GBE,-24.555201,25.9182
 882,Selebi Phikwe Airport,Selebi-phikwe,Botswana,PKW,-22.0583,27.8288
-883,Maya-Maya Airport,Brazzaville,Congo (Brazzaville),BZV,-4.251699924,15.25300026
-884,Owando Airport,Owando,Congo (Kinshasa),FTX,-0.531350017,15.95009995
-885,Ouesso Airport,Ouesso,Congo (Kinshasa),OUE,1.615990043,16.03790092
-886,Pointe Noire Airport,Pointe-noire,Congo (Brazzaville),PNR,-4.816030025,11.88659954
+883,Maya-Maya Airport,Brazzaville,Congo,BZV,-4.251699924,15.25300026
+884,Owando Airport,Owando,Democratic Republic of Congo,FTX,-0.531350017,15.95009995
+885,Ouesso Airport,Ouesso,Democratic Republic of Congo,OUE,1.615990043,16.03790092
+886,Pointe Noire Airport,Pointe-noire,Congo,PNR,-4.816030025,11.88659954
 887,Matsapha Airport,Manzini,Swaziland,MTS,-26.52899933,31.30750084
 888,Bangui M'Poko International Airport,Bangui,Central African Republic,BGF,4.398479939,18.51880074
 889,Berb√©rati Airport,Berberati,Central African Republic,BBT,4.221580029,15.78639984
@@ -996,30 +996,30 @@
 1017,Mzuzu Airport,Mzuzu,Malawi,ZZU,-11.44470024,34.01179886
 1018,Moshoeshoe I International Airport,Maseru,Lesotho,MSU,-29.46229935,27.55249977
 1019,Mejametalana Airbase,Maseru,Lesotho,\N,-29.30410004,27.50349998
-1020,Ndjili International Airport,Kinshasa,Congo (Kinshasa),FIH,-4.38575,15.4446
-1021,Ndolo Airport,Kinshasa,Congo (Kinshasa),NLO,-4.326660156,15.32750034
-1022,Muanda Airport,Muanda,Congo (Kinshasa),MNB,-5.930860043,12.35179996
-1023,Kitona Base Airport,Kitona Base,Congo (Kinshasa),\N,-5.918059826,12.44769955
-1024,Bandundu Airport,Bandoundu,Congo (Kinshasa),FDU,-3.311320066,17.38170052
-1025,Kikwit Airport,Kikwit,Congo (Kinshasa),KKW,-5.035769939,18.78560066
-1026,Mbandaka Airport,Mbandaka,Congo (Kinshasa),MDK,0.022600001,18.2887001
-1027,Gbadolite Airport,Gbadolite,Congo (Kinshasa),BDT,4.253210068,20.97529984
-1028,Gemena Airport,Gemena,Congo (Kinshasa),GMA,3.235369921,19.77129936
-1029,Kotakoli Airport,Kotakoli,Congo (Kinshasa),KLI,4.15763998,21.65089989
-1030,Lisala Airport,Lisala,Congo (Kinshasa),LIQ,2.17066,21.496901
-1031,Bangoka International Airport,Kisangani,Congo (Kinshasa),FKI,0.481638998,25.33799934
-1032,Matari Airport,Isiro,Congo (Kinshasa),IRP,2.827610016,27.5883007
-1033,Bunia Airport,Bunia,Congo (Kinshasa),BUX,1.565719962,30.2208004
-1034,Buta Zega Airport,Buta Zega,Congo (Kinshasa),BZU,2.818350077,24.79369926
-1035,Bukavu Kavumu Airport,Bukavu/kavumu,Congo (Kinshasa),BKY,-2.308979988,28.80879974
-1036,Goma International Airport,Goma,Congo (Kinshasa),GOM,-1.670809984,29.2385006
-1037,Kindu Airport,Kindu,Congo (Kinshasa),KND,-2.919179916,25.91539955
-1038,Lubumbashi International Airport,Lubumashi,Congo (Kinshasa),FBM,-11.59130001,27.53089905
-1039,Kolwezi Airport,Kolwezi,Congo (Kinshasa),KWZ,-10.76589966,25.50569916
-1040,Kalemie Airport,Kalemie,Congo (Kinshasa),FMI,-5.875559807,29.25
-1041,Kamina Base Airport,Kamina Base,Congo (Kinshasa),KMN,-8.642020226,25.25289917
-1042,Kananga Airport,Kananga,Congo (Kinshasa),KGA,-5.900050163,22.46920013
-1043,Mbuji Mayi Airport,Mbuji-mayi,Congo (Kinshasa),MJM,-6.121240139,23.56900024
+1020,Ndjili International Airport,Kinshasa,Democratic Republic of Congo,FIH,-4.38575,15.4446
+1021,Ndolo Airport,Kinshasa,Democratic Republic of Congo,NLO,-4.326660156,15.32750034
+1022,Muanda Airport,Muanda,Democratic Republic of Congo,MNB,-5.930860043,12.35179996
+1023,Kitona Base Airport,Kitona Base,Democratic Republic of Congo,\N,-5.918059826,12.44769955
+1024,Bandundu Airport,Bandoundu,Democratic Republic of Congo,FDU,-3.311320066,17.38170052
+1025,Kikwit Airport,Kikwit,Democratic Republic of Congo,KKW,-5.035769939,18.78560066
+1026,Mbandaka Airport,Mbandaka,Democratic Republic of Congo,MDK,0.022600001,18.2887001
+1027,Gbadolite Airport,Gbadolite,Democratic Republic of Congo,BDT,4.253210068,20.97529984
+1028,Gemena Airport,Gemena,Democratic Republic of Congo,GMA,3.235369921,19.77129936
+1029,Kotakoli Airport,Kotakoli,Democratic Republic of Congo,KLI,4.15763998,21.65089989
+1030,Lisala Airport,Lisala,Democratic Republic of Congo,LIQ,2.17066,21.496901
+1031,Bangoka International Airport,Kisangani,Democratic Republic of Congo,FKI,0.481638998,25.33799934
+1032,Matari Airport,Isiro,Democratic Republic of Congo,IRP,2.827610016,27.5883007
+1033,Bunia Airport,Bunia,Democratic Republic of Congo,BUX,1.565719962,30.2208004
+1034,Buta Zega Airport,Buta Zega,Democratic Republic of Congo,BZU,2.818350077,24.79369926
+1035,Bukavu Kavumu Airport,Bukavu/kavumu,Democratic Republic of Congo,BKY,-2.308979988,28.80879974
+1036,Goma International Airport,Goma,Democratic Republic of Congo,GOM,-1.670809984,29.2385006
+1037,Kindu Airport,Kindu,Democratic Republic of Congo,KND,-2.919179916,25.91539955
+1038,Lubumbashi International Airport,Lubumashi,Democratic Republic of Congo,FBM,-11.59130001,27.53089905
+1039,Kolwezi Airport,Kolwezi,Democratic Republic of Congo,KWZ,-10.76589966,25.50569916
+1040,Kalemie Airport,Kalemie,Democratic Republic of Congo,FMI,-5.875559807,29.25
+1041,Kamina Base Airport,Kamina Base,Democratic Republic of Congo,KMN,-8.642020226,25.25289917
+1042,Kananga Airport,Kananga,Democratic Republic of Congo,KGA,-5.900050163,22.46920013
+1043,Mbuji Mayi Airport,Mbuji-mayi,Democratic Republic of Congo,MJM,-6.121240139,23.56900024
 1044,Modibo Keita International Airport,Bamako,Mali,BKO,12.5335,-7.94994
 1045,Gao Airport,Gao,Mali,GAQ,16.24839973,-0.005456
 1046,Kayes Dag Dag Airport,Kayes,Mali,KYS,14.48120022,-11.40439987
@@ -4313,7 +4313,7 @@
 5608,Orapa Airport,Orapa,Botswana,ORP,-21.266701,25.3167
 5609,Shakawe Airport,Shakawe,Botswana,SWX,-18.37389946,21.83259964
 5610,Limpopo Valley Airport,Tuli Lodge,Botswana,TLD,-22.18919945,29.12689972
-5611,Ngot Nzoungou Airport,Loubomo,Congo (Brazzaville),DIS,-4.20635,12.6599
+5611,Ngot Nzoungou Airport,Loubomo,Congo,DIS,-4.20635,12.6599
 5612,Chipata Airport,Chipata,Zambia,CIP,-13.55830002,32.58720016
 5613,Los Alamitos Army Air Field,Solwesi,Zambia,\N,33.79000092,-118.052002
 5614,Iconi Airport,Moroni,Comoros,YVA,-11.71080017,43.2439003
@@ -4347,15 +4347,15 @@
 5643,Oranjemund Airport,Oranjemund,Namibia,OMD,-28.5847,16.446699
 5644,Swakopmund Airport,Swakopmund,Namibia,SWP,-22.66189957,14.56809998
 5645,Eros Airport,Windhoek,Namibia,ERS,-22.61219978,17.08040047
-5646,Boma Airport,Boma,Congo (Kinshasa),BOA,-5.854000092,13.06400013
-5647,Tshimpi Airport,Matadi,Congo (Kinshasa),MAT,-5.799610138,13.44040012
-5648,Inongo Airport,Inongo,Congo (Kinshasa),INO,-1.947219968,18.28580093
-5649,Nioki Airport,Nioki,Congo (Kinshasa),NIO,-2.717499971,17.68470001
-5650,Basango Mboliasa Airport,Kiri,Congo (Kinshasa),KRZ,-1.434999943,19.02400017
-5651,Basankusu Airport,Basankusu,Congo (Kinshasa),BSU,1.224720001,19.78890038
-5652,Tshikapa Airport,Tshikapa,Congo (Kinshasa),TSH,-6.43833,20.794701
-5653,Lodja Airport,Lodja,Congo (Kinshasa),LJA,-3.417000055,23.45000076
-5654,Ilebo Airport,Ilebo,Congo (Kinshasa),PFR,-4.329919,20.590124
+5646,Boma Airport,Boma,Democratic Republic of Congo,BOA,-5.854000092,13.06400013
+5647,Tshimpi Airport,Matadi,Democratic Republic of Congo,MAT,-5.799610138,13.44040012
+5648,Inongo Airport,Inongo,Democratic Republic of Congo,INO,-1.947219968,18.28580093
+5649,Nioki Airport,Nioki,Democratic Republic of Congo,NIO,-2.717499971,17.68470001
+5650,Basango Mboliasa Airport,Kiri,Democratic Republic of Congo,KRZ,-1.434999943,19.02400017
+5651,Basankusu Airport,Basankusu,Democratic Republic of Congo,BSU,1.224720001,19.78890038
+5652,Tshikapa Airport,Tshikapa,Democratic Republic of Congo,TSH,-6.43833,20.794701
+5653,Lodja Airport,Lodja,Democratic Republic of Congo,LJA,-3.417000055,23.45000076
+5654,Ilebo Airport,Ilebo,Democratic Republic of Congo,PFR,-4.329919,20.590124
 5657,Outer Skerries Airport,Outer Skerries,United Kingdom,OUK,60.4252,-0.75
 5659,La Gomera Airport,La Gomera,Spain,GMZ,28.02960014,-17.21459961
 5662,Sherbro International Airport,Bonthe,Sierra Leone,BTE,7.532420158,-12.51889992
@@ -6470,7 +6470,7 @@
 9104,Rancho San Simeon Airport,Cambria,United States,\N,35.60770035,-121.1100006
 9107,Yichun Mingyueshan Airport,Yichun,China,YIC,27.8025,114.3062
 9120,Dinwiddie County Airport,Petersburg,United States,PTB,37.18379974,-77.50740051
-9123,Kasongo Airport,Kasongo,Congo (Kinshasa),\N,-4.532999992,26.61700058
+9123,Kasongo Airport,Kasongo,Democratic Republic of Congo,\N,-4.532999992,26.61700058
 9124,McMurdo Station Pegasus Field,McMurdo Station,Antarctica,\N,-77.96340179,166.5249939
 9125,Klatovy Airport,Klatovy,Czech Republic,\N,49.41830063,13.32190037
 9126,Sheboygan County Memorial Airport,Sheboygan,United States,SBM,43.76959991,-87.85140228
@@ -6891,9 +6891,9 @@
 11180,Resende Airport,Resende,Brazil,REZ,-22.47850037,-44.4803009
 11181,Saquarema Airport,Saquarema,Brazil,\N,-22.92972183,-42.50694275
 11182,Drumheller Municipal Airport,Drumheller,Canada,\N,51.49639893,-112.7490005
-11193,Mwene-Ditu Airport,Mwene-Ditu,Congo (Kinshasa),\N,-6.982999802,23.08300018
-11194,Tunta Airport,Kabinda,Congo (Kinshasa),KBN,-6.132999897,24.4829998
-11195,Ikela Airport,Ikela,Congo (Kinshasa),IKL,-1.048109,23.372501
+11193,Mwene-Ditu Airport,Mwene-Ditu,Democratic Republic of Congo,\N,-6.982999802,23.08300018
+11194,Tunta Airport,Kabinda,Democratic Republic of Congo,KBN,-6.132999897,24.4829998
+11195,Ikela Airport,Ikela,Democratic Republic of Congo,IKL,-1.048109,23.372501
 11198,Aripuan√£ Airport,Aripuana,Brazil,AIR,-10.188278,-59.457273
 11199,Juruena Airport,Juruena,Brazil,JRN,-10.30583286,-58.48944473
 11200,Ju√≠na Airport,Juina,Brazil,JIA,-11.419444,-58.701668
@@ -6904,13 +6904,13 @@
 11205,Tangar√° da Serra Airport,Tangara da Serra,Brazil,TGQ,-14.6619997,-57.44350052
 11206,Canarana Airport,Canarana,Brazil,CQA,-13.57444382,-52.2705574
 11207,Vila Bela da Sant√≠ssima Trindade Airport,Vila Bela da Santissima Trindade ,Brazil,MTG,-14.9942,-59.9458
-11208,Bumbar Airport,Bumba,Congo (Kinshasa),BMB,2.18278,22.481701
+11208,Bumbar Airport,Bumba,Democratic Republic of Congo,BMB,2.18278,22.481701
 11209,Sobral Airport,Sobral,Brazil,\N,-3.67889,-40.336802
 11210,Arapiraca Airport,Arapiraca,Brazil,APQ,-9.775360107,-36.62919998
 11211,Cangapara Airport,Floriano,Brazil,FLB,-6.846389771,-43.07730103
 11212,Picos Airport,Picos,Brazil,PCS,-7.062059879,-41.52370071
-11229,Beni Airport,Beni,Congo (Kinshasa),BNC,0.575,29.4739
-11230,Boende Airport,Boende,Congo (Kinshasa),BNB,-0.216999993,20.85000038
+11229,Beni Airport,Beni,Democratic Republic of Congo,BNC,0.575,29.4739
+11230,Boende Airport,Boende,Democratic Republic of Congo,BNB,-0.216999993,20.85000038
 11243,Montauk Airport,Montauk,United States,MTP,41.0765,-71.920797
 11255,Porter County Municipal Airport,Valparaiso IN,United States,VPZ,41.45399857,-87.00710297
 11257,Dharavandhoo Airport,DHARAVANDHOO,Maldives,DRV,5.1561,73.1302
@@ -6923,9 +6923,9 @@
 11274,Swan Hill Airport,Swan Hill,Australia,SWH,-35.37580109,143.5330048
 11277,Turtle Island Seaplane Base,Turtle Island,Fiji,TTL,-16.966,177.368
 11288,Dewadaru - Kemujan Island,Karimunjawa,Indonesia,KWB,-5.80091,110.47838
-11290,Kongolo Airport,Kongolo,Congo (Kinshasa),KOO,-5.39444,26.99
+11290,Kongolo Airport,Kongolo,Democratic Republic of Congo,KOO,-5.39444,26.99
 11291,Attopeu Airport,Attopeu,Laos,AOU,14.81471536,106.8216991
-11292,Kahemba Airport,Kahemba,Congo (Kinshasa),\N,-7.333000183,19.0170002
+11292,Kahemba Airport,Kahemba,Democratic Republic of Congo,\N,-7.333000183,19.0170002
 11293,Francisco de Miranda Airport,Caracas,Venezuela,\N,10.48503304,-66.84351349
 11295,S√£o Miguel do Oeste Airport,Sao Miguel do Oeste,Brazil,SQX,-26.78160095,-53.50350189
 11299,Mason County Airport,Ludington,United States,LDM,43.96250153,-86.40789795
@@ -7420,7 +7420,7 @@
 13248,Torgau-Beilrode Airport,Gransee,Germany,\N,51.570907,13.051641
 13249,Annob√≥n Airport,San Antonio de Pale,Equatorial Guinea,NBN,-1.410277,5.621944
 13257,Renk Airport,Huangshan,China,\N,11.83246927,32.81049728
-13260,Oyo Ollombo Airport,Oyo,Congo (Brazzaville),OLL,-1.226666,15.91
+13260,Oyo Ollombo Airport,Oyo,Congo,OLL,-1.226666,15.91
 13263,Port Hardy Seaplane Base,Port Hardy,Canada,\N,50.71670151,-127.4830017
 13265,Tri-City Airport,Parsons,United States,PPF,37.32989883,-95.5062027
 13266,Boun Neau Airport,Phongsaly,Laos,PCQ,21.6475,101.9
@@ -7508,7 +7508,7 @@
 13437,Stratford Municipal Airport,Stratford,Canada,\N,43.41559982,-80.93440247
 13438,Edmundston Airport,Edmundston,Canada,\N,47.49060059,-68.48190308
 13439,Red Dog Airport,Red Dog,United States,RDB,68.03209686,-162.8990021
-13447,Impfondo Airport,Impfondo,Congo (Brazzaville),ION,1.616999984,18.06699944
+13447,Impfondo Airport,Impfondo,Congo,ION,1.616999984,18.06699944
 13448,El Bayadh Airport,El Bayadh,Algeria,EBH,33.72166667,1.0925
 13451,Alzintan Airport,Zintan,Libya,ZIS,31.774878,12.25006
 13452,Monkey Bay Airport,Monkey Bay,Malawi,MYZ,-14.08360004,34.91970062

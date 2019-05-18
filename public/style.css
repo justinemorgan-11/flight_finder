@@ -1,6 +1,9 @@
 
 .flight-form {
     background-color: rgba(84, 198, 181, 0.776);
+    padding: 2%;
+    justify-content: right;
+    width: 30%;
 }
 
 .flight {
@@ -10,8 +13,19 @@
     margin: 10px;
 }
 
+.flight-search {
+    display: flex;
+}
+
+.flight-map {
+    width: 70%;
+}
 
 .airline-logo {
     height: 50px;
+}
+
+.map {
+    width: 100%;
 }
 
