@@ -19,6 +19,7 @@ class Flights extends React.Component {
         this.searchFlight = this.searchFlight.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.getAwardFlights = this.getAwardFlights.bind(this);
+        this.getCashAwardFlights = this.getCashAwardFlights.bind(this);
     }
 
     componentDidMount() {
@@ -30,6 +31,8 @@ class Flights extends React.Component {
 
     searchFlight(evt) {
         evt.preventDefault();
+
+        const { wallets } = this.props;
 
         const flight = {
             origin: this.state.origin,
@@ -50,33 +53,24 @@ class Flights extends React.Component {
                     })
                 })
 
-                // Chase + Amex are price based (1.5c/1c respectively)
-                // const amexValue = this.props.wallets.find(w => w.programName === 'Membership Rewards').valuation;
-                // const chaseValue = this.props.wallets.find(w => w.programName === 'Ulitmate Rewards').valuation;
-
-                // const amex = quotes.map(quote => {
-                //     quote.id = quote.id + 20000;
-                //     quote.MinPrice = (quote.MinPrice * amexValue);
-                //     quote.type = 'Membership Rewards';
-                //     return quote;
-                // });
-
-                // const chase = quotes.map(quote => {
-                //     quote.id = quote.id + 30000;
-                //     quote.MinPrice = (quote.MinPrice * chaseValue / 1.5);
-                //     quote.type = 'Ultimate Rewards';
-                //     return quote;
-                // });
-
                 const awardFlights = this.getAwardFlights();
-                quotes = quotes.concat(awardFlights);
 
-                console.log(quotes);
+                const chase = wallets.find(w => w.programName === 'Ultimate Rewards');
+                const amex = wallets.find(w => w.programName === 'Membership Rewards');
+
+                const chaseQuotes = chase ? this.getCashAwardFlights(quotes, chase.valuation, 1.5, chase.programName, 2000) : [];
+                const amexQuotes = amex ? this.getCashAwardFlights(quotes, amex.valuation, 1, amex.programName, 3000) : [];
+
+                quotes = quotes.concat(awardFlights);
+                quotes = quotes.concat(chaseQuotes);
+                quotes = quotes.concat(amexQuotes);
+                console.log(amexQuotes);
 
                 quotes = quotes.sort((q1, q2) => {
                     return q1.MinPrice - q2.MinPrice;
                 })
 
+                console.log(quotes);
                 this.setState({
                     quotes,
                 })
@@ -91,15 +85,25 @@ class Flights extends React.Component {
         return awardFlights.map(award => {
 
             const program = programs.find(p => p.id === award.programId);
-            const value = wallets.find(w => w.programName === program.name).valuation / 100;
-
+            const value = wallets.find(w => w.programName === program.name).valuation * 100;
             return ({
                 QuoteId: 10000 + award.id,
-                MinPrice: (2 * award.points * value),
+                MinPrice: (2 * award.points / value),
                 Carrier: award.carrier,
                 type: program.name,
             })
         });
+    }
+
+    getCashAwardFlights(quotes, valuation, value, name, idx) {
+        return quotes.map(quote => {
+            return ({
+                QuoteId: idx + quote.QuoteId,
+                MinPrice: (valuation * quote.MinPrice / value),
+                Carrier: quote.Carrier,
+                type: name,
+            })
+        })
     }
 
     handleChange({ target }) {
@@ -111,6 +115,31 @@ class Flights extends React.Component {
     render() {
         console.log(this.props);
         const { quotes, origin, destination, dateIn, dateOut } = this.state;
+        if (this.state.quotes.length === 0) {
+            return (
+                <div className="flight-form center-form">
+                    <form onSubmit={this.searchFlight}>
+                        <label htmlFor="origin">Origin:</label>
+                        <br />
+                        <input name="origin" value={origin} onChange={this.handleChange} className="form-control" />
+                        <br />
+                        <label htmlFor="destination">Destination:</label>
+                        <br />
+                        <input name="destination" value={destination} onChange={this.handleChange} className="form-control" />
+                        <br />
+                        <label htmlFor="dateOut">Date Out:</label>
+                        <br />
+                        <input type="date" name="dateOut" value={dateOut} onChange={this.handleChange} className="form-control" />
+                        <br />
+                        <label htmlFor="dateIn">Date In:</label>
+                        <br />
+                        <input type="date" name="dateIn" value={dateIn} onChange={this.handleChange} className="form-control" />
+                        <br />
+                        <button type="submit" className="btn btn-secondary">Search</button>
+                    </form>
+                </div>
+            )
+        }
         return (
             <div className="flight-search">
                 <div className="flight-sidebar">

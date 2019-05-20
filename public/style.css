@@ -4,15 +4,17 @@ body {
 }
 
 .flight-form {
-    background-color: rgba(84, 198, 181, 0.776);
+    background-color: #005B95;
     padding: 2%;
     justify-content: right;
-    width: 10   0%;
+    width: 100%;
+    color: white;
+    border-radius: 8px; 
 }
 
 .flight {
-    background-color: #005B95;
-    color: white;
+    background-color: white;
+    color: #031F4B;
     display: flex;
     margin: 10px;
     border-radius: 8px;
@@ -27,14 +29,19 @@ body {
 }
 
 .flight-sidebar {
-    background-color: rgb(132, 132, 158);
     width: 40%;
     height: 100%;
     padding: 2%;
+    margin-top: 3%;  
 }
 
 .flight-list {
-    width: 60%;
+    margin-top: 5%; 
+    width: 50%;
+}
+
+.flight-details {
+    margin-left: 1%;
 }
 
 .airline-logo {
@@ -47,15 +54,22 @@ body {
 
 .map {
     width: 100%;
+    border-radius: 8px;
+    margin-bottom: 5%;
 }
 
-.wallet {
+.fixed-div {
+    position: fixed;
+}
+
+.center-form {
     background-color: #005B95;
     width: 50%;
     border-radius: 8px;
     padding: 2%;
     margin-top: 5%;
     margin-left: 25%;
+    color: white;       
 }
 
 .wallet-header {

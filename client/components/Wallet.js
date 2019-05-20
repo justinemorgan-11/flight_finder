@@ -15,9 +15,8 @@ class Wallet extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         return (
-            <div className="wallet">
+            <div className="center-form">
                 <form onSubmit={this.handleSubmit} className="wallet-form">
                     <table>
                         <thead className="wallet-header">

@@ -7,7 +7,7 @@ module.exports = [
   },
   {
     "userId": 1,
-    "programName": "Ulitmate Rewards",
+    "programName": "Ultimate Rewards",
     "quantity": 170000,
     "valuation": 1.5
   },

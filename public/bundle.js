@@ -239,6 +239,7 @@ var Flights = function (_React$Component) {
         _this.searchFlight = _this.searchFlight.bind(_this);
         _this.handleChange = _this.handleChange.bind(_this);
         _this.getAwardFlights = _this.getAwardFlights.bind(_this);
+        _this.getCashAwardFlights = _this.getCashAwardFlights.bind(_this);
         return _this;
     }
 
@@ -256,6 +257,9 @@ var Flights = function (_React$Component) {
             var _this2 = this;
 
             evt.preventDefault();
+
+            var wallets = this.props.wallets;
+
 
             var flight = {
                 origin: this.state.origin,
@@ -278,33 +282,28 @@ var Flights = function (_React$Component) {
                     };
                 });
 
-                // Chase + Amex are price based (1.5c/1c respectively)
-                // const amexValue = this.props.wallets.find(w => w.programName === 'Membership Rewards').valuation;
-                // const chaseValue = this.props.wallets.find(w => w.programName === 'Ulitmate Rewards').valuation;
-
-                // const amex = quotes.map(quote => {
-                //     quote.id = quote.id + 20000;
-                //     quote.MinPrice = (quote.MinPrice * amexValue);
-                //     quote.type = 'Membership Rewards';
-                //     return quote;
-                // });
-
-                // const chase = quotes.map(quote => {
-                //     quote.id = quote.id + 30000;
-                //     quote.MinPrice = (quote.MinPrice * chaseValue / 1.5);
-                //     quote.type = 'Ultimate Rewards';
-                //     return quote;
-                // });
-
                 var awardFlights = _this2.getAwardFlights();
-                quotes = quotes.concat(awardFlights);
 
-                console.log(quotes);
+                var chase = wallets.find(function (w) {
+                    return w.programName === 'Ultimate Rewards';
+                });
+                var amex = wallets.find(function (w) {
+                    return w.programName === 'Membership Rewards';
+                });
+
+                var chaseQuotes = chase ? _this2.getCashAwardFlights(quotes, chase.valuation, 1.5, chase.programName, 2000) : [];
+                var amexQuotes = amex ? _this2.getCashAwardFlights(quotes, amex.valuation, 1, amex.programName, 3000) : [];
+
+                quotes = quotes.concat(awardFlights);
+                quotes = quotes.concat(chaseQuotes);
+                quotes = quotes.concat(amexQuotes);
+                console.log(amexQuotes);
 
                 quotes = quotes.sort(function (q1, q2) {
                     return q1.MinPrice - q2.MinPrice;
                 });
 
+                console.log(quotes);
                 _this2.setState({
                     quotes: quotes
                 });
@@ -337,13 +336,24 @@ var Flights = function (_React$Component) {
                 });
                 var value = wallets.find(function (w) {
                     return w.programName === program.name;
-                }).valuation / 100;
-
+                }).valuation * 100;
                 return {
                     QuoteId: 10000 + award.id,
-                    MinPrice: 2 * award.points * value,
+                    MinPrice: 2 * award.points / value,
                     Carrier: award.carrier,
                     type: program.name
+                };
+            });
+        }
+    }, {
+        key: 'getCashAwardFlights',
+        value: function getCashAwardFlights(quotes, valuation, value, name, idx) {
+            return quotes.map(function (quote) {
+                return {
+                    QuoteId: idx + quote.QuoteId,
+                    MinPrice: valuation * quote.MinPrice / value,
+                    Carrier: quote.Carrier,
+                    type: name
                 };
             });
         }
@@ -365,6 +375,53 @@ var Flights = function (_React$Component) {
                 dateIn = _state.dateIn,
                 dateOut = _state.dateOut;
 
+            if (this.state.quotes.length === 0) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'flight-form center-form' },
+                    _react2.default.createElement(
+                        'form',
+                        { onSubmit: this.searchFlight },
+                        _react2.default.createElement(
+                            'label',
+                            { htmlFor: 'origin' },
+                            'Origin:'
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement('input', { name: 'origin', value: origin, onChange: this.handleChange, className: 'form-control' }),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'label',
+                            { htmlFor: 'destination' },
+                            'Destination:'
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement('input', { name: 'destination', value: destination, onChange: this.handleChange, className: 'form-control' }),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'label',
+                            { htmlFor: 'dateOut' },
+                            'Date Out:'
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement('input', { type: 'date', name: 'dateOut', value: dateOut, onChange: this.handleChange, className: 'form-control' }),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'label',
+                            { htmlFor: 'dateIn' },
+                            'Date In:'
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement('input', { type: 'date', name: 'dateIn', value: dateIn, onChange: this.handleChange, className: 'form-control' }),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'button',
+                            { type: 'submit', className: 'btn btn-secondary' },
+                            'Search'
+                        )
+                    )
+                );
+            }
             return _react2.default.createElement(
                 'div',
                 { className: 'flight-search' },
@@ -652,22 +709,26 @@ var SingleFlight = function SingleFlight(props) {
         { key: quote.QuoteId, className: 'flight' },
         _react2.default.createElement('img', { src: 'airlines/' + quote.Carrier.toLowerCase().replace(/ /g, '') + '.jpg', className: 'airline-logo' }),
         _react2.default.createElement(
-            'p',
-            null,
-            quote.Carrier,
-            ' (',
+            'div',
+            { className: 'flight-details' },
             _react2.default.createElement(
-                'i',
+                'h6',
                 null,
-                quote.type
+                quote.Carrier,
+                ' (',
+                _react2.default.createElement(
+                    'i',
+                    null,
+                    quote.type
+                ),
+                ')'
             ),
-            ')'
-        ),
-        _react2.default.createElement(
-            'p',
-            null,
-            '$',
-            quote.MinPrice.toFixed(2)
+            _react2.default.createElement(
+                'p',
+                null,
+                '$',
+                quote.MinPrice.toFixed(2)
+            )
         )
     );
 };
@@ -732,10 +793,9 @@ var Wallet = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            console.log(this.props);
             return _react2.default.createElement(
                 'div',
-                { className: 'wallet' },
+                { className: 'center-form' },
                 _react2.default.createElement(
                     'form',
                     { onSubmit: this.handleSubmit, className: 'wallet-form' },
@@ -847,7 +907,8 @@ var WalletEntry = function (_React$Component) {
 
         _this.state = {
             quantity: 0,
-            valuation: 0
+            valuation: 0,
+            walletId: -1
         };
 
         _this.handleChange = _this.handleChange.bind(_this);
@@ -861,11 +922,23 @@ var WalletEntry = function (_React$Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            this.props.fetchWallet(1).then(function (wallet) {
-                return _this2.setState({
-                    quantity: wallet.wallet.quantity,
-                    valuation: wallet.wallet.valuation
+            this.props.fetchWallets().then(function (res) {
+                var currentWallet = res.wallets.find(function (w) {
+                    return w.programName === _this2.props.program.name;
                 });
+                if (currentWallet) {
+                    _this2.props.fetchWallet(currentWallet.id).then(function (resWallet) {
+                        var _resWallet$wallet = resWallet.wallet,
+                            quantity = _resWallet$wallet.quantity,
+                            valuation = _resWallet$wallet.valuation;
+
+                        _this2.setState({
+                            quantity: quantity,
+                            valuation: valuation,
+                            walletId: currentWallet.id
+                        });
+                    });
+                }
             });
         }
     }, {
@@ -883,14 +956,14 @@ var WalletEntry = function (_React$Component) {
                 quantity = _state.quantity,
                 valuation = _state.valuation;
 
-            this.props.updateWallet({ id: 1, quantity: quantity, valuation: valuation });
+            this.props.updateWallet({ id: this.state.walletId, quantity: quantity, valuation: valuation });
         }
     }, {
         key: 'render',
         value: function render() {
             var program = this.props.program;
 
-            console.log(this.props);
+            console.log(this.state);
             return _react2.default.createElement(
                 'tr',
                 { key: program.id, className: 'wallet-row' },
@@ -935,10 +1008,12 @@ var WalletEntry = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    var wallet = state.wallet;
+    var wallet = state.wallet,
+        wallets = state.wallets;
 
     return {
-        wallet: wallet
+        wallet: wallet,
+        wallets: wallets
     };
 };
 
@@ -949,6 +1024,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
         },
         updateWallet: function updateWallet(wallet) {
             return dispatch((0, _index.updateWallet)(wallet));
+        },
+        fetchWallets: function fetchWallets() {
+            return dispatch((0, _index.fetchWallets)());
         }
     };
 };
